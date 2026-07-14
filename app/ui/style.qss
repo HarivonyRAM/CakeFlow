@@ -1,0 +1,325 @@
+/* ============================================
+   CakeFlow - Feuille de style globale
+   Thème : Délice et Douceur chez A
+   Couleurs principales :
+     - Primary: #e91e90 (rose vif)
+     - Secondary: #c2185b (rose foncé)
+     - Background: #fff5f7 (rose très pâle)
+     - Accent: #fce4ec (rose clair)
+     - Text: #333333 (gris foncé)
+     - Text Light: #999999 (gris clair)
+   ============================================ */
+
+/* === GLOBAL === */
+QWidget {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-size: 13px;
+    color: #333333;
+}
+
+QMainWindow {
+    background-color: #faf5f7;
+}
+
+/* === SCROLLBAR === */
+QScrollBar:vertical {
+    background: #faf5f7;
+    width: 8px;
+    border-radius: 4px;
+    margin: 0;
+}
+
+QScrollBar::handle:vertical {
+    background: #e0c0d0;
+    border-radius: 4px;
+    min-height: 30px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #e91e90;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+QScrollBar:horizontal {
+    background: #faf5f7;
+    height: 8px;
+    border-radius: 4px;
+    margin: 0;
+}
+
+QScrollBar::handle:horizontal {
+    background: #e0c0d0;
+    border-radius: 4px;
+    min-width: 30px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #e91e90;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0;
+}
+
+/* === INPUTS === */
+QLineEdit {
+    background-color: #ffffff;
+    border: 2px solid #f0c0d0;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: #333333;
+    selection-background-color: #e91e90;
+    selection-color: #ffffff;
+}
+
+QLineEdit:focus {
+    border-color: #e91e90;
+}
+
+QLineEdit:hover {
+    border-color: #e91e90;
+}
+
+/* === BOUTONS === */
+QPushButton {
+    background-color: #e91e90;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #c2185b;
+}
+
+QPushButton:pressed {
+    background-color: #ad1457;
+}
+
+QPushButton:disabled {
+    background-color: #f0c0d0;
+    color: #ffffff;
+}
+
+QPushButton[flat="true"] {
+    background: transparent;
+    color: #e91e90;
+    border: none;
+    font-weight: normal;
+}
+
+QPushButton[flat="true"]:hover {
+    color: #c2185b;
+    text-decoration: underline;
+}
+
+/* === CHECKBOX === */
+QCheckBox {
+    font-size: 12px;
+    color: #666666;
+    spacing: 6px;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e0c0d0;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #e91e90;
+    border-color: #e91e90;
+}
+
+QCheckBox::indicator:hover {
+    border-color: #e91e90;
+}
+
+/* === COMBOBOX === */
+QComboBox {
+    background-color: #ffffff;
+    border: 2px solid #f0c0d0;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: #333333;
+}
+
+QComboBox:hover {
+    border-color: #e91e90;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 30px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #f0c0d0;
+    border-radius: 8px;
+    selection-background-color: #fce4ec;
+    selection-color: #c2185b;
+    padding: 4px;
+}
+
+/* === TABLEAU === */
+QTableWidget {
+    background-color: #ffffff;
+    border: 1px solid #f0e0e8;
+    border-radius: 12px;
+    gridline-color: #f5e8ee;
+    selection-background-color: #fce4ec;
+    selection-color: #c2185b;
+}
+
+QTableWidget::item {
+    padding: 8px 12px;
+    border-bottom: 1px solid #f5e8ee;
+}
+
+QTableWidget::item:hover {
+    background-color: #fff0f3;
+}
+
+QHeaderView::section {
+    background-color: #fce4ec;
+    color: #c2185b;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 10px 12px;
+    border: none;
+    border-bottom: 2px solid #e91e90;
+}
+
+/* === GROUPBOX === */
+QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #f0e0e8;
+    border-radius: 12px;
+    margin-top: 20px;
+    padding: 15px;
+    font-weight: bold;
+    color: #c2185b;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 4px 12px;
+    background-color: #fce4ec;
+    border-radius: 8px;
+    color: #c2185b;
+}
+
+/* === LABELS === */
+QLabel {
+    color: #333333;
+}
+
+/* === TAB WIDGET === */
+QTabWidget::pane {
+    border: 1px solid #f0e0e8;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+QTabBar::tab {
+    background-color: #faf5f7;
+    color: #999999;
+    padding: 10px 20px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 13px;
+}
+
+QTabBar::tab:selected {
+    color: #c2185b;
+    border-bottom-color: #e91e90;
+    font-weight: bold;
+}
+
+QTabBar::tab:hover {
+    color: #e91e90;
+    background-color: #fff0f3;
+}
+
+/* === TOOLTIP === */
+QToolTip {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+/* === MESSAGEBOX === */
+QMessageBox {
+    background-color: #fff5f7;
+}
+
+QMessageBox QPushButton {
+    min-width: 80px;
+    padding: 8px 16px;
+}
+
+/* === PROGRESS BAR === */
+QProgressBar {
+    background-color: #fce4ec;
+    border: none;
+    border-radius: 6px;
+    height: 12px;
+    text-align: center;
+    font-size: 10px;
+    color: #c2185b;
+}
+
+QProgressBar::chunk {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #e91e90, stop:1 #c2185b);
+    border-radius: 6px;
+}
+
+/* === SPINBOX === */
+QSpinBox, QDoubleSpinBox {
+    background-color: #ffffff;
+    border: 2px solid #f0c0d0;
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #333333;
+}
+
+QSpinBox:focus, QDoubleSpinBox:focus {
+    border-color: #e91e90;
+}
+
+/* === DATE EDIT === */
+QDateEdit {
+    background-color: #ffffff;
+    border: 2px solid #f0c0d0;
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #333333;
+}
+
+QDateEdit:focus {
+    border-color: #e91e90;
+}
+
+QDateEdit::drop-down {
+    border: none;
+    width: 30px;
+}

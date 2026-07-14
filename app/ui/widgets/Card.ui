@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Card</class>
+ <widget class="QFrame" name="Card">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>280</width>
+    <height>140</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>220</width>
+    <height>120</height>
+   </size>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QFrame#Card {
+    background-color: #ffffff;
+    border: 1px solid #f0e0e8;
+    border-radius: 16px;
+}
+QFrame#Card:hover {
+    border-color: #e91e90;
+    background-color: #fffafc;
+}</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::StyledPanel</enum>
+  </property>
+  <layout class="QVBoxLayout" name="cardLayout">
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>18</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>18</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="cardHeaderLayout">
+     <item>
+      <widget class="QLabel" name="cardTitle">
+       <property name="text">
+        <string>Titre</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel { font-size: 12px; color: #999999; }</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="cardHeaderSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="cardIcon">
+       <property name="minimumSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel { background-color: #fce4ec; border-radius: 16px; padding: 6px; }</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="cardValue">
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { font-size: 28px; font-weight: bold; color: #333333; }</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="cardSubtext">
+     <property name="text">
+      <string>+0% depuis hier</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { font-size: 11px; color: #4caf50; }</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

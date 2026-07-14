@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Base du cupcake -->
+  <path d="M16 38 L20 56 L44 56 L48 38 Z" fill="#e91e90" stroke="#c2185b" stroke-width="1.5"/>
+  <!-- Lignes décoratives du moule -->
+  <line x1="22" y1="38" x2="24" y2="56" stroke="#c2185b" stroke-width="0.8" opacity="0.4"/>
+  <line x1="28" y1="38" x2="29" y2="56" stroke="#c2185b" stroke-width="0.8" opacity="0.4"/>
+  <line x1="34" y1="38" x2="35" y2="56" stroke="#c2185b" stroke-width="0.8" opacity="0.4"/>
+  <line x1="40" y1="38" x2="42" y2="56" stroke="#c2185b" stroke-width="0.8" opacity="0.4"/>
+  <!-- Crème / Glaçage -->
+  <path d="M14 38 C14 38 18 28 22 30 C26 32 24 24 28 26 C32 28 30 20 34 22 C38 24 36 28 40 26 C44 24 42 32 46 30 C50 28 50 38 50 38 Z" fill="#ffb6c1" stroke="#e91e90" stroke-width="1.5"/>
+  <!-- Cerise sur le dessus -->
+  <circle cx="32" cy="18" r="5" fill="#c2185b"/>
+  <path d="M32 13 C32 13 34 8 38 6" stroke="#4caf50" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="30" cy="16" rx="1.5" ry="1" fill="#e91e90" opacity="0.6"/>
+  <!-- Petit coeur -->
+  <path d="M30 10 C30 8 32 8 32 10 C32 8 34 8 34 10 C34 12 32 14 32 14 C32 14 30 12 30 10 Z" fill="#ff69b4" transform="translate(0, -4) scale(0.7)" transform-origin="32 10"/>
+</svg>
