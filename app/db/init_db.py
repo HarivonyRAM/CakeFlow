@@ -27,7 +27,7 @@ def initialize_database():
         password_hash TEXT NOT NULL,
         nom TEXT,
         prenom TEXT,
-        role TEXT NOT NULL DEFAULT 'vendeur'
+        role TEXT NOT NULL DEFAULT 'Vendeur'
     );
     """)
     
@@ -49,6 +49,7 @@ def initialize_database():
         objet TEXT NOT NULL,
         num TEXT,
         mail TEXT,
+        autres TEXT,
         FOREIGN KEY (client_id) REFERENCES clients (id) ON DELETE CASCADE
     );
     """)
@@ -96,16 +97,40 @@ def initialize_database():
         FOREIGN KEY (commande_id) REFERENCES commandes (id) ON DELETE CASCADE
     );
     """)
+
+    # 7. Table produits
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS produits (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        libelle TEXT NOT NULL,
+        prix_min REAL NOT NULL DEFAULT 0.0,
+        description TEXT
+    );
+    """)
+
+    # 8. Table commande_produits (Relation Commande <- Many to Many -> Produit)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS commande_produits (
+        commande_id INTEGER NOT NULL,
+        produit_id INTEGER NOT NULL,
+        quantite INTEGER NOT NULL DEFAULT 1,
+        prix_unitaire REAL NOT NULL,
+        notes_personnalisation TEXT,
+        PRIMARY KEY (commande_id, produit_id),
+        FOREIGN KEY (commande_id) REFERENCES commandes (id) ON DELETE CASCADE,
+        FOREIGN KEY (produit_id) REFERENCES produits (id) ON DELETE RESTRICT
+    );
+    """)
     
-    # Insérer l'utilisateur administrateur par défaut si aucun utilisateur n'existe
-    cursor.execute("SELECT COUNT(*) FROM users;")
+    # Insérer l'utilisateur SuperAdmin par défaut s'il n'existe pas encore
+    cursor.execute("SELECT COUNT(*) FROM users WHERE username = ?;", ("SuperAdmin",))
     if cursor.fetchone()[0] == 0:
-        admin_pass_hash = hash_password("admin")
+        admin_pass_hash = hash_password("superAdmin")
         cursor.execute("""
         INSERT INTO users (username, password_hash, nom, prenom, role)
         VALUES (?, ?, ?, ?, ?);
-        """, ("admin", admin_pass_hash, "Admin", "System", "admin"))
-        print("Utilisateur administrateur par défaut créé : admin / admin")
+        """, ("SuperAdmin", admin_pass_hash, "Super", "Admin", "Admin"))
+        print("Utilisateur SuperAdmin créé par défaut : SuperAdmin / superAdmin")
         
     conn.commit()
     conn.close()

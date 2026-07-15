@@ -63,6 +63,7 @@ class Ui_DashboardWindow(object):
         self.homePage.setObjectName("homePage")
         self.homeLayout = QtWidgets.QVBoxLayout(self.homePage)
         self.homeLayout.setContentsMargins(25, 25, 25, 25)
+        self.homeLayout.setSpacing(20)
         self.homeLayout.setObjectName("homeLayout")
         self.welcomeLabel = QtWidgets.QLabel(self.homePage)
         self.welcomeLabel.setStyleSheet("QLabel {\n"
@@ -72,9 +73,351 @@ class Ui_DashboardWindow(object):
 "}")
         self.welcomeLabel.setObjectName("welcomeLabel")
         self.homeLayout.addWidget(self.welcomeLabel)
-        spacerItem = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.homeLayout.addItem(spacerItem)
+        self.subtitleLabel = QtWidgets.QLabel(self.homePage)
+        self.subtitleLabel.setStyleSheet("QLabel {\n"
+"    font-size: 14px;\n"
+"    color: #999999;\n"
+"    margin-top: -10px;\n"
+"}")
+        self.subtitleLabel.setObjectName("subtitleLabel")
+        self.homeLayout.addWidget(self.subtitleLabel)
+        self.statsCardsLayout = QtWidgets.QHBoxLayout()
+        self.statsCardsLayout.setSpacing(16)
+        self.statsCardsLayout.setObjectName("statsCardsLayout")
+        self.cardVentesJour = QtWidgets.QFrame(self.homePage)
+        self.cardVentesJour.setMinimumSize(QtCore.QSize(0, 120))
+        self.cardVentesJour.setStyleSheet("QFrame#cardVentesJour {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #f0e0e8;\n"
+"    border-radius: 16px;\n"
+"}\n"
+"QFrame#cardVentesJour:hover {\n"
+"    border-color: #e91e90;\n"
+"    background-color: #fffafc;\n"
+"}")
+        self.cardVentesJour.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.cardVentesJour.setObjectName("cardVentesJour")
+        self.cardVentesJourLayout = QtWidgets.QVBoxLayout(self.cardVentesJour)
+        self.cardVentesJourLayout.setContentsMargins(20, 16, 20, 16)
+        self.cardVentesJourLayout.setObjectName("cardVentesJourLayout")
+        self.hboxlayout = QtWidgets.QHBoxLayout()
+        self.hboxlayout.setObjectName("hboxlayout")
+        self.cardVentesJourTitle = QtWidgets.QLabel(self.cardVentesJour)
+        self.cardVentesJourTitle.setStyleSheet("QLabel { font-size: 12px; color: #999999; }")
+        self.cardVentesJourTitle.setObjectName("cardVentesJourTitle")
+        self.hboxlayout.addWidget(self.cardVentesJourTitle)
+        spacerItem = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.hboxlayout.addItem(spacerItem)
+        self.cardVentesJourIcon = QtWidgets.QLabel(self.cardVentesJour)
+        self.cardVentesJourIcon.setMinimumSize(QtCore.QSize(32, 32))
+        self.cardVentesJourIcon.setMaximumSize(QtCore.QSize(32, 32))
+        self.cardVentesJourIcon.setStyleSheet("QLabel { background-color: #e8f5e9; border-radius: 16px; padding: 6px; }")
+        self.cardVentesJourIcon.setAlignment(QtCore.Qt.AlignCenter)
+        self.cardVentesJourIcon.setObjectName("cardVentesJourIcon")
+        self.hboxlayout.addWidget(self.cardVentesJourIcon)
+        self.cardVentesJourLayout.addLayout(self.hboxlayout)
+        self.cardVentesJourValue = QtWidgets.QLabel(self.cardVentesJour)
+        self.cardVentesJourValue.setStyleSheet("QLabel { font-size: 28px; font-weight: bold; color: #333333; }")
+        self.cardVentesJourValue.setObjectName("cardVentesJourValue")
+        self.cardVentesJourLayout.addWidget(self.cardVentesJourValue)
+        self.cardVentesJourSubtext = QtWidgets.QLabel(self.cardVentesJour)
+        self.cardVentesJourSubtext.setStyleSheet("QLabel { font-size: 11px; color: #4caf50; }")
+        self.cardVentesJourSubtext.setObjectName("cardVentesJourSubtext")
+        self.cardVentesJourLayout.addWidget(self.cardVentesJourSubtext)
+        self.statsCardsLayout.addWidget(self.cardVentesJour)
+        self.cardVentesSemaine = QtWidgets.QFrame(self.homePage)
+        self.cardVentesSemaine.setMinimumSize(QtCore.QSize(0, 120))
+        self.cardVentesSemaine.setStyleSheet("QFrame#cardVentesSemaine {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #f0e0e8;\n"
+"    border-radius: 16px;\n"
+"}\n"
+"QFrame#cardVentesSemaine:hover {\n"
+"    border-color: #e91e90;\n"
+"    background-color: #fffafc;\n"
+"}")
+        self.cardVentesSemaine.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.cardVentesSemaine.setObjectName("cardVentesSemaine")
+        self.cardVentesSemaineLayout = QtWidgets.QVBoxLayout(self.cardVentesSemaine)
+        self.cardVentesSemaineLayout.setContentsMargins(20, 16, 20, 16)
+        self.cardVentesSemaineLayout.setObjectName("cardVentesSemaineLayout")
+        self.hboxlayout1 = QtWidgets.QHBoxLayout()
+        self.hboxlayout1.setObjectName("hboxlayout1")
+        self.cardVentesSemaineTitle = QtWidgets.QLabel(self.cardVentesSemaine)
+        self.cardVentesSemaineTitle.setStyleSheet("QLabel { font-size: 12px; color: #999999; }")
+        self.cardVentesSemaineTitle.setObjectName("cardVentesSemaineTitle")
+        self.hboxlayout1.addWidget(self.cardVentesSemaineTitle)
+        spacerItem1 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.hboxlayout1.addItem(spacerItem1)
+        self.cardVentesSemaineIcon = QtWidgets.QLabel(self.cardVentesSemaine)
+        self.cardVentesSemaineIcon.setMinimumSize(QtCore.QSize(32, 32))
+        self.cardVentesSemaineIcon.setMaximumSize(QtCore.QSize(32, 32))
+        self.cardVentesSemaineIcon.setStyleSheet("QLabel { background-color: #e3f2fd; border-radius: 16px; padding: 6px; }")
+        self.cardVentesSemaineIcon.setAlignment(QtCore.Qt.AlignCenter)
+        self.cardVentesSemaineIcon.setObjectName("cardVentesSemaineIcon")
+        self.hboxlayout1.addWidget(self.cardVentesSemaineIcon)
+        self.cardVentesSemaineLayout.addLayout(self.hboxlayout1)
+        self.cardVentesSemaineValue = QtWidgets.QLabel(self.cardVentesSemaine)
+        self.cardVentesSemaineValue.setStyleSheet("QLabel { font-size: 28px; font-weight: bold; color: #333333; }")
+        self.cardVentesSemaineValue.setObjectName("cardVentesSemaineValue")
+        self.cardVentesSemaineLayout.addWidget(self.cardVentesSemaineValue)
+        self.cardVentesSemaineSubtext = QtWidgets.QLabel(self.cardVentesSemaine)
+        self.cardVentesSemaineSubtext.setStyleSheet("QLabel { font-size: 11px; color: #2196f3; }")
+        self.cardVentesSemaineSubtext.setObjectName("cardVentesSemaineSubtext")
+        self.cardVentesSemaineLayout.addWidget(self.cardVentesSemaineSubtext)
+        self.statsCardsLayout.addWidget(self.cardVentesSemaine)
+        self.cardCommandesEnCours = QtWidgets.QFrame(self.homePage)
+        self.cardCommandesEnCours.setMinimumSize(QtCore.QSize(0, 120))
+        self.cardCommandesEnCours.setStyleSheet("QFrame#cardCommandesEnCours {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #f0e0e8;\n"
+"    border-radius: 16px;\n"
+"}\n"
+"QFrame#cardCommandesEnCours:hover {\n"
+"    border-color: #e91e90;\n"
+"    background-color: #fffafc;\n"
+"}")
+        self.cardCommandesEnCours.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.cardCommandesEnCours.setObjectName("cardCommandesEnCours")
+        self.cardCommandesLayout = QtWidgets.QVBoxLayout(self.cardCommandesEnCours)
+        self.cardCommandesLayout.setContentsMargins(20, 16, 20, 16)
+        self.cardCommandesLayout.setObjectName("cardCommandesLayout")
+        self.hboxlayout2 = QtWidgets.QHBoxLayout()
+        self.hboxlayout2.setObjectName("hboxlayout2")
+        self.cardCommandesTitle = QtWidgets.QLabel(self.cardCommandesEnCours)
+        self.cardCommandesTitle.setStyleSheet("QLabel { font-size: 12px; color: #999999; }")
+        self.cardCommandesTitle.setObjectName("cardCommandesTitle")
+        self.hboxlayout2.addWidget(self.cardCommandesTitle)
+        spacerItem2 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.hboxlayout2.addItem(spacerItem2)
+        self.cardCommandesIcon = QtWidgets.QLabel(self.cardCommandesEnCours)
+        self.cardCommandesIcon.setMinimumSize(QtCore.QSize(32, 32))
+        self.cardCommandesIcon.setMaximumSize(QtCore.QSize(32, 32))
+        self.cardCommandesIcon.setStyleSheet("QLabel { background-color: #fff3e0; border-radius: 16px; padding: 6px; }")
+        self.cardCommandesIcon.setAlignment(QtCore.Qt.AlignCenter)
+        self.cardCommandesIcon.setObjectName("cardCommandesIcon")
+        self.hboxlayout2.addWidget(self.cardCommandesIcon)
+        self.cardCommandesLayout.addLayout(self.hboxlayout2)
+        self.cardCommandesValue = QtWidgets.QLabel(self.cardCommandesEnCours)
+        self.cardCommandesValue.setStyleSheet("QLabel { font-size: 28px; font-weight: bold; color: #333333; }")
+        self.cardCommandesValue.setObjectName("cardCommandesValue")
+        self.cardCommandesLayout.addWidget(self.cardCommandesValue)
+        self.cardCommandesSubtext = QtWidgets.QLabel(self.cardCommandesEnCours)
+        self.cardCommandesSubtext.setStyleSheet("QLabel { font-size: 11px; color: #ff9800; }")
+        self.cardCommandesSubtext.setObjectName("cardCommandesSubtext")
+        self.cardCommandesLayout.addWidget(self.cardCommandesSubtext)
+        self.statsCardsLayout.addWidget(self.cardCommandesEnCours)
+        self.cardClientsActifs = QtWidgets.QFrame(self.homePage)
+        self.cardClientsActifs.setMinimumSize(QtCore.QSize(0, 120))
+        self.cardClientsActifs.setStyleSheet("QFrame#cardClientsActifs {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #f0e0e8;\n"
+"    border-radius: 16px;\n"
+"}\n"
+"QFrame#cardClientsActifs:hover {\n"
+"    border-color: #e91e90;\n"
+"    background-color: #fffafc;\n"
+"}")
+        self.cardClientsActifs.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.cardClientsActifs.setObjectName("cardClientsActifs")
+        self.cardClientsLayout = QtWidgets.QVBoxLayout(self.cardClientsActifs)
+        self.cardClientsLayout.setContentsMargins(20, 16, 20, 16)
+        self.cardClientsLayout.setObjectName("cardClientsLayout")
+        self.hboxlayout3 = QtWidgets.QHBoxLayout()
+        self.hboxlayout3.setObjectName("hboxlayout3")
+        self.cardClientsTitle = QtWidgets.QLabel(self.cardClientsActifs)
+        self.cardClientsTitle.setStyleSheet("QLabel { font-size: 12px; color: #999999; }")
+        self.cardClientsTitle.setObjectName("cardClientsTitle")
+        self.hboxlayout3.addWidget(self.cardClientsTitle)
+        spacerItem3 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.hboxlayout3.addItem(spacerItem3)
+        self.cardClientsIcon = QtWidgets.QLabel(self.cardClientsActifs)
+        self.cardClientsIcon.setMinimumSize(QtCore.QSize(32, 32))
+        self.cardClientsIcon.setMaximumSize(QtCore.QSize(32, 32))
+        self.cardClientsIcon.setStyleSheet("QLabel { background-color: #fce4ec; border-radius: 16px; padding: 6px; }")
+        self.cardClientsIcon.setAlignment(QtCore.Qt.AlignCenter)
+        self.cardClientsIcon.setObjectName("cardClientsIcon")
+        self.hboxlayout3.addWidget(self.cardClientsIcon)
+        self.cardClientsLayout.addLayout(self.hboxlayout3)
+        self.cardClientsValue = QtWidgets.QLabel(self.cardClientsActifs)
+        self.cardClientsValue.setStyleSheet("QLabel { font-size: 28px; font-weight: bold; color: #333333; }")
+        self.cardClientsValue.setObjectName("cardClientsValue")
+        self.cardClientsLayout.addWidget(self.cardClientsValue)
+        self.cardClientsSubtext = QtWidgets.QLabel(self.cardClientsActifs)
+        self.cardClientsSubtext.setStyleSheet("QLabel { font-size: 11px; color: #c2185b; }")
+        self.cardClientsSubtext.setObjectName("cardClientsSubtext")
+        self.cardClientsLayout.addWidget(self.cardClientsSubtext)
+        self.statsCardsLayout.addWidget(self.cardClientsActifs)
+        self.homeLayout.addLayout(self.statsCardsLayout)
+        self.quickActionsLayout = QtWidgets.QHBoxLayout()
+        self.quickActionsLayout.setSpacing(12)
+        self.quickActionsLayout.setObjectName("quickActionsLayout")
+        self.btnNouvelleCommande = QtWidgets.QPushButton(self.homePage)
+        self.btnNouvelleCommande.setMinimumSize(QtCore.QSize(0, 40))
+        self.btnNouvelleCommande.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnNouvelleCommande.setStyleSheet("QPushButton {\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #e91e90, stop:1 #c2185b);\n"
+"    color: #ffffff;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #c2185b, stop:1 #ad1457);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: #ad1457;\n"
+"}")
+        self.btnNouvelleCommande.setObjectName("btnNouvelleCommande")
+        self.quickActionsLayout.addWidget(self.btnNouvelleCommande)
+        self.btnAjouterClient = QtWidgets.QPushButton(self.homePage)
+        self.btnAjouterClient.setMinimumSize(QtCore.QSize(0, 40))
+        self.btnAjouterClient.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnAjouterClient.setStyleSheet("QPushButton {\n"
+"    background-color: #ffffff;\n"
+"    color: #c2185b;\n"
+"    border: 2px solid #e91e90;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-size: 13px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #fff0f3;\n"
+"    border-color: #c2185b;\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: #fce4ec;\n"
+"}")
+        self.btnAjouterClient.setObjectName("btnAjouterClient")
+        self.quickActionsLayout.addWidget(self.btnAjouterClient)
+        spacerItem4 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.quickActionsLayout.addItem(spacerItem4)
+        self.homeLayout.addLayout(self.quickActionsLayout)
+        self.recentOrdersFrame = QtWidgets.QFrame(self.homePage)
+        self.recentOrdersFrame.setStyleSheet("QFrame#recentOrdersFrame {\n"
+"    background-color: #ffffff;\n"
+"    border: 1px solid #f0e0e8;\n"
+"    border-radius: 16px;\n"
+"}")
+        self.recentOrdersFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.recentOrdersFrame.setObjectName("recentOrdersFrame")
+        self.recentOrdersLayout = QtWidgets.QVBoxLayout(self.recentOrdersFrame)
+        self.recentOrdersLayout.setContentsMargins(20, 16, 20, 16)
+        self.recentOrdersLayout.setSpacing(12)
+        self.recentOrdersLayout.setObjectName("recentOrdersLayout")
+        self.recentOrdersTitle = QtWidgets.QLabel(self.recentOrdersFrame)
+        self.recentOrdersTitle.setStyleSheet("QLabel {\n"
+"    font-size: 16px;\n"
+"    font-weight: bold;\n"
+"    color: #333333;\n"
+"}")
+        self.recentOrdersTitle.setObjectName("recentOrdersTitle")
+        self.recentOrdersLayout.addWidget(self.recentOrdersTitle)
+        self.recentOrdersTable = QtWidgets.QTableWidget(self.recentOrdersFrame)
+        self.recentOrdersTable.setMinimumSize(QtCore.QSize(0, 200))
+        self.recentOrdersTable.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.recentOrdersTable.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.recentOrdersTable.setAlternatingRowColors(True)
+        self.recentOrdersTable.setShowGrid(False)
+        self.recentOrdersTable.setColumnCount(5)
+        self.recentOrdersTable.setStyleSheet("QTableWidget {\n"
+"    background-color: #ffffff;\n"
+"    border: none;\n"
+"    border-radius: 8px;\n"
+"    gridline-color: transparent;\n"
+"}\n"
+"QTableWidget::item {\n"
+"    padding: 8px 12px;\n"
+"    border-bottom: 1px solid #f5e8ee;\n"
+"}\n"
+"QTableWidget::item:hover {\n"
+"    background-color: #fff0f3;\n"
+"}\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #fce4ec;\n"
+"    color: #c2185b;\n"
+"}\n"
+"QTableWidget::item:alternate {\n"
+"    background-color: #fdf8fa;\n"
+"}")
+        self.recentOrdersTable.setObjectName("recentOrdersTable")
+        self.recentOrdersTable.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.recentOrdersTable.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.recentOrdersTable.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.recentOrdersTable.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.recentOrdersTable.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.recentOrdersTable.setHorizontalHeaderItem(4, item)
+        self.recentOrdersLayout.addWidget(self.recentOrdersTable)
+        self.homeLayout.addWidget(self.recentOrdersFrame)
         self.pagesStack.addWidget(self.homePage)
+        self.commandesPage = QtWidgets.QWidget()
+        self.commandesPage.setObjectName("commandesPage")
+        self.commandesLayout = QtWidgets.QVBoxLayout(self.commandesPage)
+        self.commandesLayout.setContentsMargins(25, 25, 25, 25)
+        self.commandesLayout.setObjectName("commandesLayout")
+        self.commandesPlaceholder = QtWidgets.QLabel(self.commandesPage)
+        self.commandesPlaceholder.setStyleSheet("QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }")
+        self.commandesPlaceholder.setObjectName("commandesPlaceholder")
+        self.commandesLayout.addWidget(self.commandesPlaceholder)
+        spacerItem5 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.commandesLayout.addItem(spacerItem5)
+        self.pagesStack.addWidget(self.commandesPage)
+        self.clientsPage = QtWidgets.QWidget()
+        self.clientsPage.setObjectName("clientsPage")
+        self.clientsLayout = QtWidgets.QVBoxLayout(self.clientsPage)
+        self.clientsLayout.setContentsMargins(25, 25, 25, 25)
+        self.clientsLayout.setObjectName("clientsLayout")
+        self.clientsPlaceholder = QtWidgets.QLabel(self.clientsPage)
+        self.clientsPlaceholder.setStyleSheet("QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }")
+        self.clientsPlaceholder.setObjectName("clientsPlaceholder")
+        self.clientsLayout.addWidget(self.clientsPlaceholder)
+        spacerItem6 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.clientsLayout.addItem(spacerItem6)
+        self.pagesStack.addWidget(self.clientsPage)
+        self.produitsPage = QtWidgets.QWidget()
+        self.produitsPage.setObjectName("produitsPage")
+        self.produitsLayout = QtWidgets.QVBoxLayout(self.produitsPage)
+        self.produitsLayout.setContentsMargins(25, 25, 25, 25)
+        self.produitsLayout.setObjectName("produitsLayout")
+        self.produitsPlaceholder = QtWidgets.QLabel(self.produitsPage)
+        self.produitsPlaceholder.setStyleSheet("QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }")
+        self.produitsPlaceholder.setObjectName("produitsPlaceholder")
+        self.produitsLayout.addWidget(self.produitsPlaceholder)
+        spacerItem7 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.produitsLayout.addItem(spacerItem7)
+        self.pagesStack.addWidget(self.produitsPage)
+        self.paiementsPage = QtWidgets.QWidget()
+        self.paiementsPage.setObjectName("paiementsPage")
+        self.paiementsLayout = QtWidgets.QVBoxLayout(self.paiementsPage)
+        self.paiementsLayout.setContentsMargins(25, 25, 25, 25)
+        self.paiementsLayout.setObjectName("paiementsLayout")
+        self.paiementsPlaceholder = QtWidgets.QLabel(self.paiementsPage)
+        self.paiementsPlaceholder.setStyleSheet("QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }")
+        self.paiementsPlaceholder.setObjectName("paiementsPlaceholder")
+        self.paiementsLayout.addWidget(self.paiementsPlaceholder)
+        spacerItem8 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.paiementsLayout.addItem(spacerItem8)
+        self.pagesStack.addWidget(self.paiementsPage)
+        self.contactsPage = QtWidgets.QWidget()
+        self.contactsPage.setObjectName("contactsPage")
+        self.contactsLayout = QtWidgets.QVBoxLayout(self.contactsPage)
+        self.contactsLayout.setContentsMargins(25, 25, 25, 25)
+        self.contactsLayout.setObjectName("contactsLayout")
+        self.contactsPlaceholder = QtWidgets.QLabel(self.contactsPage)
+        self.contactsPlaceholder.setStyleSheet("QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }")
+        self.contactsPlaceholder.setObjectName("contactsPlaceholder")
+        self.contactsLayout.addWidget(self.contactsPlaceholder)
+        spacerItem9 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.contactsLayout.addItem(spacerItem9)
+        self.pagesStack.addWidget(self.contactsPage)
         self.contentLayout.addWidget(self.pagesStack)
         self.mainLayout.addWidget(self.contentArea)
         DashboardWindow.setCentralWidget(self.centralWidget)
@@ -86,4 +429,39 @@ class Ui_DashboardWindow(object):
         _translate = QtCore.QCoreApplication.translate
         DashboardWindow.setWindowTitle(_translate("DashboardWindow", "Délice et Douceur chez A - Dashboard"))
         self.welcomeLabel.setText(_translate("DashboardWindow", "Bienvenue sur CakeFlow"))
+        self.subtitleLabel.setText(_translate("DashboardWindow", "Voici un aperçu de votre activité"))
+        self.cardVentesJourTitle.setText(_translate("DashboardWindow", "Ventes du jour"))
+        self.cardVentesJourIcon.setText(_translate("DashboardWindow", "💰"))
+        self.cardVentesJourValue.setText(_translate("DashboardWindow", "0 Ar"))
+        self.cardVentesJourSubtext.setText(_translate("DashboardWindow", "Aujourd\'hui"))
+        self.cardVentesSemaineTitle.setText(_translate("DashboardWindow", "Ventes de la semaine"))
+        self.cardVentesSemaineIcon.setText(_translate("DashboardWindow", "📊"))
+        self.cardVentesSemaineValue.setText(_translate("DashboardWindow", "0 Ar"))
+        self.cardVentesSemaineSubtext.setText(_translate("DashboardWindow", "Cette semaine"))
+        self.cardCommandesTitle.setText(_translate("DashboardWindow", "Commandes en cours"))
+        self.cardCommandesIcon.setText(_translate("DashboardWindow", "📦"))
+        self.cardCommandesValue.setText(_translate("DashboardWindow", "0"))
+        self.cardCommandesSubtext.setText(_translate("DashboardWindow", "En attente"))
+        self.cardClientsTitle.setText(_translate("DashboardWindow", "Clients actifs"))
+        self.cardClientsIcon.setText(_translate("DashboardWindow", "👥"))
+        self.cardClientsValue.setText(_translate("DashboardWindow", "0"))
+        self.cardClientsSubtext.setText(_translate("DashboardWindow", "Avec commandes en cours"))
+        self.btnNouvelleCommande.setText(_translate("DashboardWindow", "  + Nouvelle commande"))
+        self.btnAjouterClient.setText(_translate("DashboardWindow", "  + Ajouter un client"))
+        self.recentOrdersTitle.setText(_translate("DashboardWindow", "Dernières commandes"))
+        item = self.recentOrdersTable.horizontalHeaderItem(0)
+        item.setText(_translate("DashboardWindow", "# Commande"))
+        item = self.recentOrdersTable.horizontalHeaderItem(1)
+        item.setText(_translate("DashboardWindow", "Client"))
+        item = self.recentOrdersTable.horizontalHeaderItem(2)
+        item.setText(_translate("DashboardWindow", "Montant"))
+        item = self.recentOrdersTable.horizontalHeaderItem(3)
+        item.setText(_translate("DashboardWindow", "Date livraison"))
+        item = self.recentOrdersTable.horizontalHeaderItem(4)
+        item.setText(_translate("DashboardWindow", "Statut"))
+        self.commandesPlaceholder.setText(_translate("DashboardWindow", "Page Commandes — en cours de développement"))
+        self.clientsPlaceholder.setText(_translate("DashboardWindow", "Page Clients — en cours de développement"))
+        self.produitsPlaceholder.setText(_translate("DashboardWindow", "Page Produits — en cours de développement"))
+        self.paiementsPlaceholder.setText(_translate("DashboardWindow", "Page Paiements — en cours de développement"))
+        self.contactsPlaceholder.setText(_translate("DashboardWindow", "Page Contacts — en cours de développement"))
 import resources_rc

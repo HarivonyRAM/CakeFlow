@@ -4,7 +4,7 @@ from app.utils.security import hash_password
 class UserRepository:
     """Gère la persistance des données utilisateur dans la base de données SQLite."""
 
-    def create(self, username, password, nom=None, prenom=None, role='vendeur'):
+    def create(self, username, password, nom=None, prenom=None, role='Vendeur'):
         """Crée un nouvel utilisateur."""
         conn = get_connection()
         try:

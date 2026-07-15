@@ -1,0 +1,31 @@
+# Python cache
+__pycache__/*
+*.py[cod]
+*$py.class
+*.pyo
+*.pyc
+
+# Distribution / packaging
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Databases
+*.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+Thumbs.db
+.DS_Store
