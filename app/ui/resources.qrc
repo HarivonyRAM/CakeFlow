@@ -1,19 +1,20 @@
 <RCC>
-  <qresource prefix="/">
-    <!-- Images -->
-    <file alias="images/login_cake_long.jpg">../../assets/images/login_cake_long.jpg</file>
-    <file alias="images/logo.png">../../assets/images/logo.png</file>
-    <file alias="images/logo-sans-fond.png">../../assets/images/logo-sans-fong.png</file>
-
-    <!-- Icônes -->
-    <file alias="icons/user.svg">../../assets/icons/user.svg</file>
-    <file alias="icons/lock.svg">../../assets/icons/lock.svg</file>
-    <file alias="icons/eye.svg">../../assets/icons/eye.svg</file>
-    <file alias="icons/login.svg">../../assets/icons/login.svg</file>
-    <file alias="icons/cake.svg">../../assets/icons/cake.svg</file>
-    <file alias="icons/search.svg">../../assets/icons/recherche.png</file>
-    <file alias="icons/settings.svg">../../assets/icons/menu.png</file>
-    <file alias="icons/logout.svg">../../assets/icons/Deco.png</file>
-
-  </qresource>
+    <qresource prefix="/">
+        <file alias="images/login_cake_long.jpg">../../assets/images/login_cake_long.jpg</file>
+        <file alias="images/logo.png">../../assets/images/logo.png</file>
+        <file alias="images/logo-sans-fond.png">../../assets/images/logo-sans-fong.png</file>
+        <file alias="icons/user.svg">../../assets/icons/user.svg</file>
+        <file alias="icons/lock.svg">../../assets/icons/lock.svg</file>
+        <file alias="icons/eye.svg">../../assets/icons/eye.svg</file>
+        <file alias="icons/login.svg">../../assets/icons/login.svg</file>
+        <file alias="icons/cake.svg">../../assets/icons/cake.svg</file>
+        <file alias="icons/dashboard.svg">../../assets/icons/dashboard.svg</file>
+        <file alias="icons/clients.svg">../../assets/icons/clients.svg</file>
+        <file alias="icons/commandes.svg">../../assets/icons/commandes.svg</file>
+        <file alias="icons/paiements.svg">../../assets/icons/paiements.svg</file>
+        <file alias="icons/contacts.svg">../../assets/icons/contacts.svg</file>
+        <file alias="icons/statistiques.svg">../../assets/icons/statistiques.svg</file>
+        <file alias="icons/produits.svg">../../assets/icons/produits.svg</file>
+        <file alias="icons/logout.svg">../../assets/icons/logout.svg</file>
+    </qresource>
 </RCC>

@@ -3,15 +3,15 @@ from app.db.connection import get_connection
 class ContactRepository:
     """Gère la persistance des données contacts (liés aux clients) dans la base de données SQLite."""
 
-    def create(self, client_id, objet, num=None, mail=None):
+    def create(self, client_id, objet, num=None, mail=None, autres=None):
         """Crée un nouveau contact pour un client donné."""
         conn = get_connection()
         try:
             cursor = conn.cursor()
             cursor.execute("""
-                INSERT INTO contacts (client_id, objet, num, mail)
-                VALUES (?, ?, ?, ?);
-            """, (client_id, objet, num, mail))
+                INSERT INTO contacts (client_id, objet, num, mail, autres)
+                VALUES (?, ?, ?, ?, ?);
+            """, (client_id, objet, num, mail, autres))
             conn.commit()
             return cursor.lastrowid
         finally:
@@ -38,16 +38,16 @@ class ContactRepository:
         finally:
             conn.close()
 
-    def update(self, contact_id, objet, num=None, mail=None):
+    def update(self, contact_id, objet, num=None, mail=None, autres=None):
         """Met à jour les informations d'un contact."""
         conn = get_connection()
         try:
             cursor = conn.cursor()
             cursor.execute("""
                 UPDATE contacts
-                SET objet = ?, num = ?, mail = ?
+                SET objet = ?, num = ?, mail = ?, autres = ?
                 WHERE id = ?;
-            """, (objet, num, mail, contact_id))
+            """, (objet, num, mail, autres, contact_id))
             conn.commit()
             return cursor.rowcount > 0
         finally:

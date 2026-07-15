@@ -56,6 +56,10 @@ class Ui_Sidebar(object):
         spacerItem = QtWidgets.QSpacerItem(20, 15, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.sidebarLayout.addItem(spacerItem)
         self.btnDashboard = QtWidgets.QPushButton(Sidebar)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icons/dashboard.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnDashboard.setIcon(icon)
+        self.btnDashboard.setIconSize(QtCore.QSize(18, 18))
         self.btnDashboard.setMinimumSize(QtCore.QSize(0, 42))
         self.btnDashboard.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnDashboard.setCheckable(True)
@@ -81,6 +85,10 @@ class Ui_Sidebar(object):
         self.btnDashboard.setObjectName("btnDashboard")
         self.sidebarLayout.addWidget(self.btnDashboard)
         self.btnCommandes = QtWidgets.QPushButton(Sidebar)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/icons/commandes.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnCommandes.setIcon(icon1)
+        self.btnCommandes.setIconSize(QtCore.QSize(18, 18))
         self.btnCommandes.setMinimumSize(QtCore.QSize(0, 42))
         self.btnCommandes.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnCommandes.setCheckable(True)
@@ -105,6 +113,10 @@ class Ui_Sidebar(object):
         self.btnCommandes.setObjectName("btnCommandes")
         self.sidebarLayout.addWidget(self.btnCommandes)
         self.btnClients = QtWidgets.QPushButton(Sidebar)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/icons/clients.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnClients.setIcon(icon2)
+        self.btnClients.setIconSize(QtCore.QSize(18, 18))
         self.btnClients.setMinimumSize(QtCore.QSize(0, 42))
         self.btnClients.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnClients.setCheckable(True)
@@ -129,6 +141,10 @@ class Ui_Sidebar(object):
         self.btnClients.setObjectName("btnClients")
         self.sidebarLayout.addWidget(self.btnClients)
         self.btnProduits = QtWidgets.QPushButton(Sidebar)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/icons/produits.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnProduits.setIcon(icon3)
+        self.btnProduits.setIconSize(QtCore.QSize(18, 18))
         self.btnProduits.setMinimumSize(QtCore.QSize(0, 42))
         self.btnProduits.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnProduits.setCheckable(True)
@@ -152,11 +168,15 @@ class Ui_Sidebar(object):
 "}")
         self.btnProduits.setObjectName("btnProduits")
         self.sidebarLayout.addWidget(self.btnProduits)
-        self.btnStatistiques = QtWidgets.QPushButton(Sidebar)
-        self.btnStatistiques.setMinimumSize(QtCore.QSize(0, 42))
-        self.btnStatistiques.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btnStatistiques.setCheckable(True)
-        self.btnStatistiques.setStyleSheet("QPushButton {\n"
+        self.btnPaiements = QtWidgets.QPushButton(Sidebar)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/icons/paiements.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnPaiements.setIcon(icon4)
+        self.btnPaiements.setIconSize(QtCore.QSize(18, 18))
+        self.btnPaiements.setMinimumSize(QtCore.QSize(0, 42))
+        self.btnPaiements.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnPaiements.setCheckable(True)
+        self.btnPaiements.setStyleSheet("QPushButton {\n"
 "    text-align: left;\n"
 "    padding-left: 15px;\n"
 "    font-size: 13px;\n"
@@ -174,8 +194,64 @@ class Ui_Sidebar(object):
 "    color: #ffffff;\n"
 "    font-weight: bold;\n"
 "}")
-        self.btnStatistiques.setObjectName("btnStatistiques")
-        self.sidebarLayout.addWidget(self.btnStatistiques)
+        self.btnPaiements.setObjectName("btnPaiements")
+        self.sidebarLayout.addWidget(self.btnPaiements)
+        self.btnContacts = QtWidgets.QPushButton(Sidebar)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/icons/contacts.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnContacts.setIcon(icon5)
+        self.btnContacts.setIconSize(QtCore.QSize(18, 18))
+        self.btnContacts.setMinimumSize(QtCore.QSize(0, 42))
+        self.btnContacts.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnContacts.setCheckable(True)
+        self.btnContacts.setStyleSheet("QPushButton {\n"
+"    text-align: left;\n"
+"    padding-left: 15px;\n"
+"    font-size: 13px;\n"
+"    color: #666666;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"    background: transparent;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #fff0f3;\n"
+"    color: #c2185b;\n"
+"}\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #e91e90, stop:1 #c2185b);\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"}")
+        self.btnContacts.setObjectName("btnContacts")
+        self.sidebarLayout.addWidget(self.btnContacts)
+        self.btnUtilisateurs = QtWidgets.QPushButton(Sidebar)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/icons/user.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnUtilisateurs.setIcon(icon6)
+        self.btnUtilisateurs.setIconSize(QtCore.QSize(18, 18))
+        self.btnUtilisateurs.setMinimumSize(QtCore.QSize(0, 42))
+        self.btnUtilisateurs.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnUtilisateurs.setCheckable(True)
+        self.btnUtilisateurs.setStyleSheet("QPushButton {\n"
+"    text-align: left;\n"
+"    padding-left: 15px;\n"
+"    font-size: 13px;\n"
+"    color: #666666;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"    background: transparent;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #fff0f3;\n"
+"    color: #c2185b;\n"
+"}\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #e91e90, stop:1 #c2185b);\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"}")
+        self.btnUtilisateurs.setObjectName("btnUtilisateurs")
+        self.sidebarLayout.addWidget(self.btnUtilisateurs)
         spacerItem1 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.sidebarLayout.addItem(spacerItem1)
         self.separatorLine = QtWidgets.QFrame(Sidebar)
@@ -188,6 +264,10 @@ class Ui_Sidebar(object):
         self.separatorLine.setObjectName("separatorLine")
         self.sidebarLayout.addWidget(self.separatorLine)
         self.btnLogout = QtWidgets.QPushButton(Sidebar)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(":/icons/logout.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnLogout.setIcon(icon7)
+        self.btnLogout.setIconSize(QtCore.QSize(18, 18))
         self.btnLogout.setMinimumSize(QtCore.QSize(0, 42))
         self.btnLogout.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnLogout.setStyleSheet("QPushButton {\n"
@@ -216,6 +296,8 @@ class Ui_Sidebar(object):
         self.btnCommandes.setText(_translate("Sidebar", "  Commandes"))
         self.btnClients.setText(_translate("Sidebar", "  Clients"))
         self.btnProduits.setText(_translate("Sidebar", "  Produits"))
-        self.btnStatistiques.setText(_translate("Sidebar", "  Statistiques"))
+        self.btnPaiements.setText(_translate("Sidebar", "  Paiements"))
+        self.btnContacts.setText(_translate("Sidebar", "  Contacts"))
+        self.btnUtilisateurs.setText(_translate("Sidebar", "  Utilisateurs"))
         self.btnLogout.setText(_translate("Sidebar", "  Déconnexion"))
 import resources_rc

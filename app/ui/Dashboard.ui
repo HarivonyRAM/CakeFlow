@@ -126,9 +126,15 @@
     background-color: #faf5f7;
 }</string>
          </property>
-         <!-- Page d'accueil par défaut -->
+
+         <!-- ============================== -->
+         <!-- PAGE 0 : Tableau de bord       -->
+         <!-- ============================== -->
          <widget class="QWidget" name="homePage">
           <layout class="QVBoxLayout" name="homeLayout">
+           <property name="spacing">
+            <number>20</number>
+           </property>
            <property name="leftMargin">
             <number>25</number>
            </property>
@@ -141,6 +147,8 @@
            <property name="bottomMargin">
             <number>25</number>
            </property>
+
+           <!-- Message de bienvenue -->
            <item>
             <widget class="QLabel" name="welcomeLabel">
              <property name="text">
@@ -155,15 +163,634 @@
              </property>
             </widget>
            </item>
+
+           <!-- Sous-titre -->
            <item>
-            <spacer name="homeBottomSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+            <widget class="QLabel" name="subtitleLabel">
+             <property name="text">
+              <string>Voici un aperçu de votre activité</string>
              </property>
-            </spacer>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    font-size: 14px;
+    color: #999999;
+    margin-top: -10px;
+}</string>
+             </property>
+            </widget>
+           </item>
+
+           <!-- ===== Cartes statistiques ===== -->
+           <item>
+            <layout class="QHBoxLayout" name="statsCardsLayout">
+             <property name="spacing">
+              <number>16</number>
+             </property>
+
+             <!-- Carte 1 : Ventes du jour -->
+             <item>
+              <widget class="QFrame" name="cardVentesJour">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>120</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QFrame#cardVentesJour {
+    background-color: #ffffff;
+    border: 1px solid #f0e0e8;
+    border-radius: 16px;
+}
+QFrame#cardVentesJour:hover {
+    border-color: #e91e90;
+    background-color: #fffafc;
+}</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <layout class="QVBoxLayout" name="cardVentesJourLayout">
+                <property name="leftMargin"><number>20</number></property>
+                <property name="topMargin"><number>16</number></property>
+                <property name="rightMargin"><number>20</number></property>
+                <property name="bottomMargin"><number>16</number></property>
+                <item>
+                 <layout class="QHBoxLayout">
+                  <item>
+                   <widget class="QLabel" name="cardVentesJourTitle">
+                    <property name="text"><string>Ventes du jour</string></property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel { font-size: 12px; color: #999999; }</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="cardVentesJourIcon">
+                    <property name="minimumSize"><size><width>32</width><height>32</height></size></property>
+                    <property name="maximumSize"><size><width>32</width><height>32</height></size></property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel { background-color: #e8f5e9; border-radius: 16px; padding: 6px; }</string>
+                    </property>
+                    <property name="text"><string>💰</string></property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cardVentesJourValue">
+                  <property name="text"><string>0 Ar</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { font-size: 28px; font-weight: bold; color: #333333; }</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cardVentesJourSubtext">
+                  <property name="text"><string>Aujourd'hui</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { font-size: 11px; color: #4caf50; }</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+
+             <!-- Carte 2 : Ventes de la semaine -->
+             <item>
+              <widget class="QFrame" name="cardVentesSemaine">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>120</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QFrame#cardVentesSemaine {
+    background-color: #ffffff;
+    border: 1px solid #f0e0e8;
+    border-radius: 16px;
+}
+QFrame#cardVentesSemaine:hover {
+    border-color: #e91e90;
+    background-color: #fffafc;
+}</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <layout class="QVBoxLayout" name="cardVentesSemaineLayout">
+                <property name="leftMargin"><number>20</number></property>
+                <property name="topMargin"><number>16</number></property>
+                <property name="rightMargin"><number>20</number></property>
+                <property name="bottomMargin"><number>16</number></property>
+                <item>
+                 <layout class="QHBoxLayout">
+                  <item>
+                   <widget class="QLabel" name="cardVentesSemaineTitle">
+                    <property name="text"><string>Ventes de la semaine</string></property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel { font-size: 12px; color: #999999; }</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="cardVentesSemaineIcon">
+                    <property name="minimumSize"><size><width>32</width><height>32</height></size></property>
+                    <property name="maximumSize"><size><width>32</width><height>32</height></size></property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel { background-color: #e3f2fd; border-radius: 16px; padding: 6px; }</string>
+                    </property>
+                    <property name="text"><string>📊</string></property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cardVentesSemaineValue">
+                  <property name="text"><string>0 Ar</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { font-size: 28px; font-weight: bold; color: #333333; }</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cardVentesSemaineSubtext">
+                  <property name="text"><string>Cette semaine</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { font-size: 11px; color: #2196f3; }</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+
+             <!-- Carte 3 : Commandes en cours -->
+             <item>
+              <widget class="QFrame" name="cardCommandesEnCours">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>120</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QFrame#cardCommandesEnCours {
+    background-color: #ffffff;
+    border: 1px solid #f0e0e8;
+    border-radius: 16px;
+}
+QFrame#cardCommandesEnCours:hover {
+    border-color: #e91e90;
+    background-color: #fffafc;
+}</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <layout class="QVBoxLayout" name="cardCommandesLayout">
+                <property name="leftMargin"><number>20</number></property>
+                <property name="topMargin"><number>16</number></property>
+                <property name="rightMargin"><number>20</number></property>
+                <property name="bottomMargin"><number>16</number></property>
+                <item>
+                 <layout class="QHBoxLayout">
+                  <item>
+                   <widget class="QLabel" name="cardCommandesTitle">
+                    <property name="text"><string>Commandes en cours</string></property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel { font-size: 12px; color: #999999; }</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="cardCommandesIcon">
+                    <property name="minimumSize"><size><width>32</width><height>32</height></size></property>
+                    <property name="maximumSize"><size><width>32</width><height>32</height></size></property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel { background-color: #fff3e0; border-radius: 16px; padding: 6px; }</string>
+                    </property>
+                    <property name="text"><string>📦</string></property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cardCommandesValue">
+                  <property name="text"><string>0</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { font-size: 28px; font-weight: bold; color: #333333; }</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cardCommandesSubtext">
+                  <property name="text"><string>En attente</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { font-size: 11px; color: #ff9800; }</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+
+             <!-- Carte 4 : Clients actifs -->
+             <item>
+              <widget class="QFrame" name="cardClientsActifs">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>120</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QFrame#cardClientsActifs {
+    background-color: #ffffff;
+    border: 1px solid #f0e0e8;
+    border-radius: 16px;
+}
+QFrame#cardClientsActifs:hover {
+    border-color: #e91e90;
+    background-color: #fffafc;
+}</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <layout class="QVBoxLayout" name="cardClientsLayout">
+                <property name="leftMargin"><number>20</number></property>
+                <property name="topMargin"><number>16</number></property>
+                <property name="rightMargin"><number>20</number></property>
+                <property name="bottomMargin"><number>16</number></property>
+                <item>
+                 <layout class="QHBoxLayout">
+                  <item>
+                   <widget class="QLabel" name="cardClientsTitle">
+                    <property name="text"><string>Clients actifs</string></property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel { font-size: 12px; color: #999999; }</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="cardClientsIcon">
+                    <property name="minimumSize"><size><width>32</width><height>32</height></size></property>
+                    <property name="maximumSize"><size><width>32</width><height>32</height></size></property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel { background-color: #fce4ec; border-radius: 16px; padding: 6px; }</string>
+                    </property>
+                    <property name="text"><string>👥</string></property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cardClientsValue">
+                  <property name="text"><string>0</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { font-size: 28px; font-weight: bold; color: #333333; }</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cardClientsSubtext">
+                  <property name="text"><string>Avec commandes en cours</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { font-size: 11px; color: #c2185b; }</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+
+            </layout>
+           </item>
+
+           <!-- ===== Actions rapides ===== -->
+           <item>
+            <layout class="QHBoxLayout" name="quickActionsLayout">
+             <property name="spacing">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="btnNouvelleCommande">
+               <property name="text">
+                <string>  + Nouvelle commande</string>
+               </property>
+               <property name="minimumSize">
+                <size><width>0</width><height>40</height></size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #e91e90, stop:1 #c2185b);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #c2185b, stop:1 #ad1457);
+}
+QPushButton:pressed {
+    background-color: #ad1457;
+}</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnAjouterClient">
+               <property name="text">
+                <string>  + Ajouter un client</string>
+               </property>
+               <property name="minimumSize">
+                <size><width>0</width><height>40</height></size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    background-color: #ffffff;
+    color: #c2185b;
+    border: 2px solid #e91e90;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #fff0f3;
+    border-color: #c2185b;
+}
+QPushButton:pressed {
+    background-color: #fce4ec;
+}</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="quickActionsSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+
+           <!-- ===== Tableau des dernières commandes ===== -->
+           <item>
+            <widget class="QFrame" name="recentOrdersFrame">
+             <property name="styleSheet">
+              <string notr="true">QFrame#recentOrdersFrame {
+    background-color: #ffffff;
+    border: 1px solid #f0e0e8;
+    border-radius: 16px;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <layout class="QVBoxLayout" name="recentOrdersLayout">
+              <property name="leftMargin"><number>20</number></property>
+              <property name="topMargin"><number>16</number></property>
+              <property name="rightMargin"><number>20</number></property>
+              <property name="bottomMargin"><number>16</number></property>
+              <property name="spacing"><number>12</number></property>
+              <item>
+               <widget class="QLabel" name="recentOrdersTitle">
+                <property name="text">
+                 <string>Dernières commandes</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+}</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="recentOrdersTable">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>200</height>
+                 </size>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::NoEditTriggers</set>
+                </property>
+                <property name="selectionBehavior">
+                 <enum>QAbstractItemView::SelectRows</enum>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="showGrid">
+                 <bool>false</bool>
+                </property>
+                <property name="columnCount">
+                 <number>5</number>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QTableWidget {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    gridline-color: transparent;
+}
+QTableWidget::item {
+    padding: 8px 12px;
+    border-bottom: 1px solid #f5e8ee;
+}
+QTableWidget::item:hover {
+    background-color: #fff0f3;
+}
+QTableWidget::item:selected {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+QTableWidget::item:alternate {
+    background-color: #fdf8fa;
+}</string>
+                </property>
+                <column>
+                 <property name="text"><string># Commande</string></property>
+                </column>
+                <column>
+                 <property name="text"><string>Client</string></property>
+                </column>
+                <column>
+                 <property name="text"><string>Montant</string></property>
+                </column>
+                <column>
+                 <property name="text"><string>Date livraison</string></property>
+                </column>
+                <column>
+                 <property name="text"><string>Statut</string></property>
+                </column>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+
+          </layout>
+         </widget>
+
+         <!-- ============================== -->
+         <!-- PAGE 1 : Commandes (placeholder) -->
+         <!-- ============================== -->
+         <widget class="QWidget" name="commandesPage">
+          <layout class="QVBoxLayout" name="commandesLayout">
+           <property name="leftMargin"><number>25</number></property>
+           <property name="topMargin"><number>25</number></property>
+           <property name="rightMargin"><number>25</number></property>
+           <property name="bottomMargin"><number>25</number></property>
+           <item>
+            <widget class="QLabel" name="commandesPlaceholder">
+             <property name="text"><string>Page Commandes — en cours de développement</string></property>
+             <property name="styleSheet">
+              <string notr="true">QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer>
            </item>
           </layout>
          </widget>
+
+         <!-- ============================== -->
+         <!-- PAGE 2 : Clients (placeholder) -->
+         <!-- ============================== -->
+         <widget class="QWidget" name="clientsPage">
+          <layout class="QVBoxLayout" name="clientsLayout">
+           <property name="leftMargin"><number>25</number></property>
+           <property name="topMargin"><number>25</number></property>
+           <property name="rightMargin"><number>25</number></property>
+           <property name="bottomMargin"><number>25</number></property>
+           <item>
+            <widget class="QLabel" name="clientsPlaceholder">
+             <property name="text"><string>Page Clients — en cours de développement</string></property>
+             <property name="styleSheet">
+              <string notr="true">QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer>
+           </item>
+          </layout>
+         </widget>
+
+         <!-- ============================== -->
+         <!-- PAGE 3 : Produits (placeholder) -->
+         <!-- ============================== -->
+         <widget class="QWidget" name="produitsPage">
+          <layout class="QVBoxLayout" name="produitsLayout">
+           <property name="leftMargin"><number>25</number></property>
+           <property name="topMargin"><number>25</number></property>
+           <property name="rightMargin"><number>25</number></property>
+           <property name="bottomMargin"><number>25</number></property>
+           <item>
+            <widget class="QLabel" name="produitsPlaceholder">
+             <property name="text"><string>Page Produits — en cours de développement</string></property>
+             <property name="styleSheet">
+              <string notr="true">QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer>
+           </item>
+          </layout>
+         </widget>
+
+         <!-- ============================== -->
+         <!-- PAGE 4 : Paiements (placeholder) -->
+         <!-- ============================== -->
+         <widget class="QWidget" name="paiementsPage">
+          <layout class="QVBoxLayout" name="paiementsLayout">
+           <property name="leftMargin"><number>25</number></property>
+           <property name="topMargin"><number>25</number></property>
+           <property name="rightMargin"><number>25</number></property>
+           <property name="bottomMargin"><number>25</number></property>
+           <item>
+            <widget class="QLabel" name="paiementsPlaceholder">
+             <property name="text"><string>Page Paiements — en cours de développement</string></property>
+             <property name="styleSheet">
+              <string notr="true">QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer>
+           </item>
+          </layout>
+         </widget>
+
+         <!-- ============================== -->
+         <!-- PAGE 5 : Contacts (placeholder) -->
+         <!-- ============================== -->
+         <widget class="QWidget" name="contactsPage">
+          <layout class="QVBoxLayout" name="contactsLayout">
+           <property name="leftMargin"><number>25</number></property>
+           <property name="topMargin"><number>25</number></property>
+           <property name="rightMargin"><number>25</number></property>
+           <property name="bottomMargin"><number>25</number></property>
+           <item>
+            <widget class="QLabel" name="contactsPlaceholder">
+             <property name="text"><string>Page Contacts — en cours de développement</string></property>
+             <property name="styleSheet">
+              <string notr="true">QLabel { font-size: 20px; font-weight: bold; color: #c2185b; }</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer>
+           </item>
+          </layout>
+         </widget>
+
+         <!-- ============================== -->
+         <!-- PAGE 6 : Statistiques (placeholder) -->
+         <!-- ============================== -->
         </widget>
        </item>
       </layout>
