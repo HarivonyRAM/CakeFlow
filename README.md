@@ -1,6 +1,6 @@
 # CakeFlow - Délice et Douceur chez A
 
-Application de gestion de pâtisserie développée avec PyQt5.
+Application Desktop de gestion de pâtisserie développée avec PyQt5.
 Développé par RAMINOMIANDRISOA Harivony
 
 ## Structure du projet
