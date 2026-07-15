@@ -49,6 +49,7 @@ def initialize_database():
         objet TEXT NOT NULL,
         num TEXT,
         mail TEXT,
+        autres TEXT,
         FOREIGN KEY (client_id) REFERENCES clients (id) ON DELETE CASCADE
     );
     """)
@@ -94,6 +95,30 @@ def initialize_database():
         date_modification TEXT DEFAULT (datetime('now', 'localtime')),
         commentaire TEXT,
         FOREIGN KEY (commande_id) REFERENCES commandes (id) ON DELETE CASCADE
+    );
+    """)
+
+    # 7. Table produits
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS produits (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        libelle TEXT NOT NULL,
+        prix_min REAL NOT NULL DEFAULT 0.0,
+        description TEXT
+    );
+    """)
+
+    # 8. Table commande_produits (Relation Commande <- Many to Many -> Produit)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS commande_produits (
+        commande_id INTEGER NOT NULL,
+        produit_id INTEGER NOT NULL,
+        quantite INTEGER NOT NULL DEFAULT 1,
+        prix_unitaire REAL NOT NULL,
+        notes_personnalisation TEXT,
+        PRIMARY KEY (commande_id, produit_id),
+        FOREIGN KEY (commande_id) REFERENCES commandes (id) ON DELETE CASCADE,
+        FOREIGN KEY (produit_id) REFERENCES produits (id) ON DELETE RESTRICT
     );
     """)
     
