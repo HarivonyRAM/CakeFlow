@@ -96,3 +96,10 @@ python app/main.py
 ```bash
 pip install -r requirements.txt
 ```
+
+### First Log
+```
+Après la migration
+Username : SuperAdmin
+Password: superAdmin
+```
