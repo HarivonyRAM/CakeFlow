@@ -1,8 +1,9 @@
 # Python cache
-__pycache__/
+__pycache__/*
 *.py[cod]
 *$py.class
 *.pyo
+*.pyc
 
 # Distribution / packaging
 *.egg-info/
@@ -15,7 +16,10 @@ venv/
 .venv/
 env/
 
-# IDE
+# Databases
+*.db
+
+# IDEs and editors
 .vscode/
 .idea/
 *.swp
@@ -25,6 +29,3 @@ env/
 # OS files
 Thumbs.db
 .DS_Store
-
-# Byte-compiled
-*.pyc
