@@ -125,12 +125,12 @@ def initialize_database():
     # Insérer l'utilisateur SuperAdmin par défaut s'il n'existe pas encore
     cursor.execute("SELECT COUNT(*) FROM users WHERE username = ?;", ("SuperAdmin",))
     if cursor.fetchone()[0] == 0:
-        admin_pass_hash = hash_password("harivony9655")
+        admin_pass_hash = hash_password("superAdmin")
         cursor.execute("""
         INSERT INTO users (username, password_hash, nom, prenom, role)
         VALUES (?, ?, ?, ?, ?);
         """, ("SuperAdmin", admin_pass_hash, "Super", "Admin", "Admin"))
-        print("Utilisateur SuperAdmin créé par défaut : SuperAdmin / harivony9655")
+        print("Utilisateur SuperAdmin créé par défaut : SuperAdmin / superAdmin")
         
     conn.commit()
     conn.close()
