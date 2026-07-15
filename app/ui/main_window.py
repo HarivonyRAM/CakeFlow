@@ -59,6 +59,10 @@ class DashboardWindow(QMainWindow):
         # 8. Ajouter la page Utilisateurs au QStackedWidget
         self._setup_utilisateurs_page()
 
+        # 8.5. Configurer les pages Clients et Contacts
+        self._setup_clients_page()
+        self._setup_contacts_page()
+
         # 9. Contrôle d'accès basé sur le rôle
         self._setup_role_access()
 
@@ -80,6 +84,11 @@ class DashboardWindow(QMainWindow):
             self._sidebar = QFrame()
             uic.loadUi(sidebar_ui, self._sidebar)
             layout.addWidget(self._sidebar)
+
+            # Masquer le bouton Contacts de la sidebar (non requis ici)
+            btn_contacts = self._sidebar.findChild(QPushButton, 'btnContacts')
+            if btn_contacts:
+                btn_contacts.setVisible(False)
 
     def _load_header(self):
         """Charge Header.ui dans le container headerContainer."""
@@ -142,6 +151,10 @@ class DashboardWindow(QMainWindow):
         # Rafraîchir la table utilisateurs quand on y navigue
         if page_index == 6 and hasattr(self, '_utilisateurs_page'):
             self._utilisateurs_page.refresh_table()
+
+        # Rafraîchir la table clients quand on y navigue
+        if page_index == 2 and hasattr(self, '_clients_page'):
+            self._clients_page.refresh_table(force_reload=True)
 
     def _on_logout(self):
         """Gère la déconnexion."""
@@ -299,9 +312,7 @@ class DashboardWindow(QMainWindow):
             )
 
         if hasattr(self, 'btnAjouterClient'):
-            self.btnAjouterClient.clicked.connect(
-                lambda: self._navigate_to(2, 'Clients')
-            )
+            self.btnAjouterClient.clicked.connect(self._on_dashboard_add_client)
 
     # ==================================================================
     # Page Utilisateurs (CRUD admin)
@@ -314,6 +325,43 @@ class DashboardWindow(QMainWindow):
         self._utilisateurs_page = UtilisateursPage()
         if hasattr(self, 'pagesStack'):
             self.pagesStack.addWidget(self._utilisateurs_page)
+
+    def _setup_clients_page(self):
+        """Crée et injecte la page de gestion des clients dans son conteneur layout."""
+        from app.ui.clients_window import ClientsPage
+
+        self._clients_page = ClientsPage(dashboard=self)
+        if hasattr(self, 'clientsLayout'):
+            # Vider le layout du placeholder
+            while self.clientsLayout.count():
+                child = self.clientsLayout.takeAt(0)
+                if child.widget():
+                    child.widget().deleteLater()
+            self.clientsLayout.addWidget(self._clients_page)
+
+    def _setup_contacts_page(self):
+        """Crée et injecte la page de gestion des contacts dans son conteneur layout."""
+        from app.ui.contacts_page import ContactsPage
+
+        self._contacts_page = ContactsPage(dashboard=self)
+        if hasattr(self, 'contactsLayout'):
+            # Vider le layout du placeholder
+            while self.contactsLayout.count():
+                child = self.contactsLayout.takeAt(0)
+                if child.widget():
+                    child.widget().deleteLater()
+            self.contactsLayout.addWidget(self._contacts_page)
+
+    def navigate_to_contacts(self, client_id, client_nom_complet):
+        """Navigue vers la page des contacts pour un client spécifique."""
+        if hasattr(self, '_contacts_page'):
+            self._contacts_page.set_client(client_id, client_nom_complet)
+        self._navigate_to(5, f"Contacts - {client_nom_complet}")
+
+    def _on_dashboard_add_client(self):
+        """Ouvre directement le modal d'ajout d'un client depuis le tableau de bord."""
+        if hasattr(self, '_clients_page'):
+            self._clients_page._on_add_client()
 
     # ==================================================================
     # Contrôle d'accès par rôle
