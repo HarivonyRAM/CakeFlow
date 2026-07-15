@@ -92,7 +92,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resources.qrc">:/images/login_cake.jpg</pixmap>
+         <pixmap resource="resources.qrc">:/images/login_cake_long.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -202,7 +202,7 @@
          </size>
         </property>
         <property name="pixmap">
-         <pixmap resource="resources.qrc">:/icons/cake.svg</pixmap>
+         <pixmap resource="resources.qrc">:/images/logo-sans-fond.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -552,74 +552,7 @@ QPushButton:hover {
         </layout>
        </widget>
       </item>
-
-      <!-- Ligne "Se souvenir" + "Mot de passe oublié" -->
-      <item>
-       <layout class="QHBoxLayout" name="optionsLayout">
-        <item>
-         <widget class="QCheckBox" name="rememberCheckbox">
-          <property name="text">
-           <string>Se souvenir de moi</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QCheckBox {
-    font-size: 12px;
-    color: #666666;
-    spacing: 6px;
-}
-QCheckBox::indicator {
-    width: 16px;
-    height: 16px;
-    border: 2px solid #e0c0d0;
-    border-radius: 4px;
-    background-color: #ffffff;
-}
-QCheckBox::indicator:checked {
-    background-color: #e91e90;
-    border-color: #e91e90;
-}
-QCheckBox::indicator:hover {
-    border-color: #e91e90;
-}</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="optionSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="forgotPasswordBtn">
-          <property name="text">
-           <string>Mot de passe oublié ?</string>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    font-size: 12px;
-    color: #e91e90;
-    border: none;
-    background: transparent;
-    text-decoration: none;
-}
-QPushButton:hover {
-    color: #c2185b;
-    text-decoration: underline;
-}</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-
+      
       <!-- Spacer avant bouton -->
       <item>
        <spacer name="preButtonSpacer">

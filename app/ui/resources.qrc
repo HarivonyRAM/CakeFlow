@@ -1,9 +1,9 @@
 <RCC>
   <qresource prefix="/">
     <!-- Images -->
-    <file alias="images/login_cake.jpg">../../assets/images/login_cake.jpg</file>
+    <file alias="images/login_cake_long.jpg">../../assets/images/login_cake_long.jpg</file>
     <file alias="images/logo.png">../../assets/images/logo.png</file>
-    <file alias="images/background.png">../../assets/images/background.png</file>
+    <file alias="images/logo-sans-fond.png">../../assets/images/logo-sans-fong.png</file>
 
     <!-- Icônes -->
     <file alias="icons/user.svg">../../assets/icons/user.svg</file>
@@ -11,5 +11,9 @@
     <file alias="icons/eye.svg">../../assets/icons/eye.svg</file>
     <file alias="icons/login.svg">../../assets/icons/login.svg</file>
     <file alias="icons/cake.svg">../../assets/icons/cake.svg</file>
+    <file alias="icons/search.svg">../../assets/icons/recherche.png</file>
+    <file alias="icons/settings.svg">../../assets/icons/menu.png</file>
+    <file alias="icons/logout.svg">../../assets/icons/Deco.png</file>
+
   </qresource>
 </RCC>

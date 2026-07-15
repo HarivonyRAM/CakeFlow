@@ -1,6 +1,7 @@
 # CakeFlow - Délice et Douceur chez A
 
 Application de gestion de pâtisserie développée avec PyQt5.
+Développé par RAMINOMIANDRISOA Harivony
 
 ## Structure du projet
 
@@ -45,18 +46,8 @@ project/
 │
 ├── assets/
 │   ├── images/
-│   │   ├── login_cake.jpg
-│   │   ├── logo.png
-│   │   └── background.png
-│   │
 │   ├── icons/
-│   │   ├── user.svg
-│   │   ├── lock.svg
-│   │   ├── eye.svg
-│   │   ├── login.svg
-│   │   └── cake.svg
-│   │
-│   └── fonts/
+│   └── fonts/  
 │
 └── requirements.txt
 ```
