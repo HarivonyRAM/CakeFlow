@@ -20,6 +20,7 @@ class DashboardWindow(QMainWindow):
         'btnProduits':     (3, 'Produits'),
         'btnPaiements':    (4, 'Paiements'),
         'btnContacts':     (5, 'Contacts'),
+        'btnUtilisateurs': (6, 'Utilisateurs'),
     }
 
     def __init__(self, user_data):
@@ -54,6 +55,12 @@ class DashboardWindow(QMainWindow):
 
         # 7. Connecter les boutons d'actions rapides
         self._setup_quick_actions()
+
+        # 8. Ajouter la page Utilisateurs au QStackedWidget
+        self._setup_utilisateurs_page()
+
+        # 9. Contrôle d'accès basé sur le rôle
+        self._setup_role_access()
 
     # ==================================================================
     # Chargement des sous-widgets
@@ -131,6 +138,10 @@ class DashboardWindow(QMainWindow):
         if page_index == 0:
             self._refresh_stats()
             self._refresh_recent_orders()
+
+        # Rafraîchir la table utilisateurs quand on y navigue
+        if page_index == 6 and hasattr(self, '_utilisateurs_page'):
+            self._utilisateurs_page.refresh_table()
 
     def _on_logout(self):
         """Gère la déconnexion."""
@@ -291,3 +302,29 @@ class DashboardWindow(QMainWindow):
             self.btnAjouterClient.clicked.connect(
                 lambda: self._navigate_to(2, 'Clients')
             )
+
+    # ==================================================================
+    # Page Utilisateurs (CRUD admin)
+    # ==================================================================
+
+    def _setup_utilisateurs_page(self):
+        """Crée et ajoute la page de gestion des utilisateurs au QStackedWidget."""
+        from app.ui.utilisateurs_page import UtilisateursPage
+
+        self._utilisateurs_page = UtilisateursPage()
+        if hasattr(self, 'pagesStack'):
+            self.pagesStack.addWidget(self._utilisateurs_page)
+
+    # ==================================================================
+    # Contrôle d'accès par rôle
+    # ==================================================================
+
+    def _setup_role_access(self):
+        """Masque les éléments d'interface réservés aux administrateurs."""
+        user_role = (self.user_data.get('role') or '').strip()
+        is_admin = user_role.lower() == 'admin'
+
+        # Masquer le bouton Utilisateurs dans la sidebar si l'utilisateur n'est pas Admin
+        btn_utilisateurs = self._sidebar.findChild(QPushButton, 'btnUtilisateurs')
+        if btn_utilisateurs:
+            btn_utilisateurs.setVisible(is_admin)

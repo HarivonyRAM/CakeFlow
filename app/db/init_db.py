@@ -27,7 +27,7 @@ def initialize_database():
         password_hash TEXT NOT NULL,
         nom TEXT,
         prenom TEXT,
-        role TEXT NOT NULL DEFAULT 'vendeur'
+        role TEXT NOT NULL DEFAULT 'Vendeur'
     );
     """)
     
@@ -122,15 +122,15 @@ def initialize_database():
     );
     """)
     
-    # Insérer l'utilisateur administrateur par défaut si aucun utilisateur n'existe
-    cursor.execute("SELECT COUNT(*) FROM users;")
+    # Insérer l'utilisateur SuperAdmin par défaut s'il n'existe pas encore
+    cursor.execute("SELECT COUNT(*) FROM users WHERE username = ?;", ("SuperAdmin",))
     if cursor.fetchone()[0] == 0:
-        admin_pass_hash = hash_password("admin")
+        admin_pass_hash = hash_password("harivony9655")
         cursor.execute("""
         INSERT INTO users (username, password_hash, nom, prenom, role)
         VALUES (?, ?, ?, ?, ?);
-        """, ("admin", admin_pass_hash, "Admin", "System", "admin"))
-        print("Utilisateur administrateur par défaut créé : admin / admin")
+        """, ("SuperAdmin", admin_pass_hash, "Super", "Admin", "Admin"))
+        print("Utilisateur SuperAdmin créé par défaut : SuperAdmin / harivony9655")
         
     conn.commit()
     conn.close()

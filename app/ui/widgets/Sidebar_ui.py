@@ -224,6 +224,34 @@ class Ui_Sidebar(object):
 "}")
         self.btnContacts.setObjectName("btnContacts")
         self.sidebarLayout.addWidget(self.btnContacts)
+        self.btnUtilisateurs = QtWidgets.QPushButton(Sidebar)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/icons/user.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnUtilisateurs.setIcon(icon6)
+        self.btnUtilisateurs.setIconSize(QtCore.QSize(18, 18))
+        self.btnUtilisateurs.setMinimumSize(QtCore.QSize(0, 42))
+        self.btnUtilisateurs.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnUtilisateurs.setCheckable(True)
+        self.btnUtilisateurs.setStyleSheet("QPushButton {\n"
+"    text-align: left;\n"
+"    padding-left: 15px;\n"
+"    font-size: 13px;\n"
+"    color: #666666;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"    background: transparent;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #fff0f3;\n"
+"    color: #c2185b;\n"
+"}\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #e91e90, stop:1 #c2185b);\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"}")
+        self.btnUtilisateurs.setObjectName("btnUtilisateurs")
+        self.sidebarLayout.addWidget(self.btnUtilisateurs)
         spacerItem1 = QtWidgets.QSpacerItem(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.sidebarLayout.addItem(spacerItem1)
         self.separatorLine = QtWidgets.QFrame(Sidebar)
@@ -236,9 +264,9 @@ class Ui_Sidebar(object):
         self.separatorLine.setObjectName("separatorLine")
         self.sidebarLayout.addWidget(self.separatorLine)
         self.btnLogout = QtWidgets.QPushButton(Sidebar)
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(":/icons/logout.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnLogout.setIcon(icon6)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(":/icons/logout.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnLogout.setIcon(icon7)
         self.btnLogout.setIconSize(QtCore.QSize(18, 18))
         self.btnLogout.setMinimumSize(QtCore.QSize(0, 42))
         self.btnLogout.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -270,5 +298,6 @@ class Ui_Sidebar(object):
         self.btnProduits.setText(_translate("Sidebar", "  Produits"))
         self.btnPaiements.setText(_translate("Sidebar", "  Paiements"))
         self.btnContacts.setText(_translate("Sidebar", "  Contacts"))
+        self.btnUtilisateurs.setText(_translate("Sidebar", "  Utilisateurs"))
         self.btnLogout.setText(_translate("Sidebar", "  Déconnexion"))
 import resources_rc
