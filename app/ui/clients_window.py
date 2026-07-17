@@ -283,6 +283,17 @@ class ClientsPage(QWidget):
         self.pagination.page_changed.connect(self._on_page_changed)
         main_layout.addWidget(self.pagination)
 
+        # Initialiser le helper de bulk delete
+        from app.ui.widgets.bulk_delete_helper import BulkDeleteHelper
+        self.bulk_delete = BulkDeleteHelper(
+            table=self._table,
+            header_layout=header_layout,
+            delete_callback=self._on_bulk_delete_clients,
+            refresh_callback=lambda: self.refresh_table(force_reload=True),
+            item_name_plural="clients",
+            parent=self
+        )
+
     # ── Rafraîchir le tableau ────────────────────────────────
 
     def refresh_table(self, force_reload=False):
@@ -329,6 +340,9 @@ class ClientsPage(QWidget):
         self._table.setRowCount(len(page_clients))
 
         for row_idx, client in enumerate(page_clients):
+            # Checkbox bulk delete
+            self.bulk_delete.add_row_checkbox(row_idx, client['id'])
+
             # ID
             id_item = QTableWidgetItem(str(client['id']))
             id_item.setTextAlignment(Qt.AlignCenter)
@@ -511,6 +525,16 @@ class ClientsPage(QWidget):
                 self.refresh_table(force_reload=True)
             except Exception as e:
                 QMessageBox.critical(self, "Erreur", f"Impossible de supprimer le client :\n{e}")
+
+    def _on_bulk_delete_clients(self, client_ids):
+        """Supprime plusieurs clients."""
+        from app.services.contact_service import ContactService
+        contact_service = ContactService()
+        for client_id in client_ids:
+            # Supprimer d'abord les contacts liés au client
+            contact_service.delete_contacts_by_client(client_id)
+            # Puis supprimer le client
+            self._service.delete_client(client_id)
 
     def _on_view_contacts(self, client):
         """Navigue vers la page des contacts du client."""

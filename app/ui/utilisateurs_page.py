@@ -299,6 +299,17 @@ class UtilisateursPage(QWidget):
         table_frame_layout.addWidget(self._table)
         main_layout.addWidget(table_frame)
 
+        # Initialiser le helper de bulk delete
+        from app.ui.widgets.bulk_delete_helper import BulkDeleteHelper
+        self.bulk_delete = BulkDeleteHelper(
+            table=self._table,
+            header_layout=header_layout,
+            delete_callback=self._on_bulk_delete_users,
+            refresh_callback=self.refresh_table,
+            item_name_plural="utilisateurs",
+            parent=self
+        )
+
     # ── Rafraîchir le tableau ────────────────────────────────
 
     def refresh_table(self):
@@ -307,6 +318,9 @@ class UtilisateursPage(QWidget):
         self._table.setRowCount(len(users))
 
         for row_idx, user in enumerate(users):
+            # Checkbox bulk delete
+            self.bulk_delete.add_row_checkbox(row_idx, user['id'])
+
             # ID
             id_item = QTableWidgetItem(str(user['id']))
             id_item.setTextAlignment(Qt.AlignCenter)
@@ -461,3 +475,8 @@ class UtilisateursPage(QWidget):
                 self.refresh_table()
             except Exception as e:
                 QMessageBox.critical(self, "Erreur", f"Impossible de supprimer l'utilisateur :\n{e}")
+
+    def _on_bulk_delete_users(self, user_ids):
+        """Supprime plusieurs utilisateurs."""
+        for user_id in user_ids:
+            self._repo.delete(user_id)
